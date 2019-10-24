@@ -21,10 +21,5 @@ pipeline {
         always {
             junit '*/test-results.xml'
         }
-        success {
-            steps {
-                sh 'npm pack | tail -n 1'
-            }
-        }
     }
 }
