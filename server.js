@@ -1,6 +1,11 @@
 // Get our dependencies
 var express = require('express');
+var compression = require('compression');
+
 var app = express();
+
+app.use(compression());
+
 //var mysql = require("mysql");
 //var connection = mysql.createConnection({
 //  host     : process.env.DB_HOST || 'mysql-test.cxrpknmq0hfi.us-west-2.rds.amazonaws.com',
