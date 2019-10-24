@@ -16,7 +16,7 @@ pipeline {
                 sh 'npm test'
             }
         }
-        stage('Deliver'){
+        stage('Archive Artifact'){
             steps{
                 sh 'npm pack | tail -n 1'
             }
@@ -24,6 +24,7 @@ pipeline {
     }
     post {
         always {
+            archiveArtifacts artifacts: '**/movie-analyst-api-*.tgz', fingerprint: true
             junit '**/*.xml'
         }
     }
