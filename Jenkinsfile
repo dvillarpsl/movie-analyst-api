@@ -18,8 +18,16 @@ pipeline {
         }
     }
     post {
+        always {
+            junit 'test-results.xml'
+        }
         success {
             echo 'Great!'
         }
+        failure {
+            mail to: 'dvillar@psl.com.co',
+                subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+                body: "Something is wrong with ${env.BUILD_URL}"
+        } 
     }
 }
