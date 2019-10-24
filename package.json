@@ -4,7 +4,7 @@
   "description": "Backend API",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
+    "test": "mocha --exit",
     "start": "export NODE_ENV=dev && node server.js"
   },
   "repository": {
