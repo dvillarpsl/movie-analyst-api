@@ -26,10 +26,5 @@ pipeline {
                 sh 'npm pack | tail -n 1'
             }
         }
-        failure {
-            mail to: 'dvillar@psl.com.co',
-                subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
-                body: "Something is wrong with ${env.BUILD_URL}"
-        } 
     }
 }
