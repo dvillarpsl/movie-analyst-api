@@ -16,15 +16,15 @@ pipeline {
                 sh 'npm test'
             }
         }
+        stage('Deliver'){
+            steps{
+                sh 'npm pack | tail -n 1'
+            }
+        }
     }
     post {
         always {
             junit '**/*.xml'
-        }
-        success {
-            steps {
-                sh 'npm pack | tail -n 1'
-            }
         }
     }
 }
