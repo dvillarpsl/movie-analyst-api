@@ -22,7 +22,9 @@ pipeline {
             junit '*/test-results.xml'
         }
         success {
-            echo 'Great!'
+            steps {
+                sh 'npm pack | tail -n 1'
+            }
         }
         failure {
             mail to: 'dvillar@psl.com.co',
