@@ -19,7 +19,12 @@ pipeline {
     }
     post {
         always {
-            junit '*/test-results.xml'
+            junit '**/*.xml'
+        }
+        success {
+            steps {
+                sh 'npm pack | tail -n 1'
+            }
         }
     }
 }
