@@ -1,5 +1,7 @@
 FROM node:11-alpine
 
+RUN echo "ipv6" >> /etc/modules
+
 RUN apk add --no-cache \
   python \
   py-pip \
@@ -29,6 +31,6 @@ RUN wget -O terraform.zip https://releases.hashicorp.com/terraform/${TERRAFORM_V
   rm -f terraform.zip
 
 RUN apk update && apk upgrade && \
- apk add — no-cache bash git openssh
+ apk add —-no-cache bash git openssh
 
 ENTRYPOINT ["/bin/bash", "-c"]
