@@ -14,8 +14,6 @@ RUN apk add --no-cache \
   curl \
   jq \
   git \
-  bash \
-  git \
   openssh \
   zip && \
   pip install --no-cache-dir --upgrade pip awscli && \
