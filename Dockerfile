@@ -14,6 +14,9 @@ RUN apk add --no-cache \
   curl \
   jq \
   git \
+  bash \
+  git \
+  openssh \
   zip && \
   pip install --no-cache-dir --upgrade pip awscli && \
   aws configure set preview.cloudfront true
@@ -29,8 +32,5 @@ RUN wget -O packer.zip https://releases.hashicorp.com/packer/${PACKER_VERSION}/p
 RUN wget -O terraform.zip https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
   unzip terraform.zip -d /usr/local/bin/terraform && \
   rm -f terraform.zip
-
-RUN apk update && apk upgrade && \
- apk add —-no-cache bash git openssh
 
 ENTRYPOINT ["/bin/bash", "-c"]
