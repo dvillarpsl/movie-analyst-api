@@ -21,7 +21,7 @@ RUN apk update
 ENV TERRAFORM_VERSION 0.12.10
 ENV PACKER_VERSION 1.2.4
 
-RUN wget -O packer.zip https://releases.hashicorp.com/packer/${TERRAFORM_VERSION}/packer_${TERRAFORM_VERSION}_linux_amd64.zip && \
+RUN wget -O packer.zip https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_linux_amd64.zip && \
   unzip packer.zip -d /usr/local/bin/packer && \
   rm -f packer.zip
 RUN wget -O terraform.zip https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
