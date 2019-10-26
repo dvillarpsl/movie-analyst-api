@@ -19,9 +19,11 @@ pipeline {
         }
         stage ('Deploying Artifact') {
             steps {
-                def generatedTarFile = sh script: 'ls movie-analyst-api-*.tgz', returnStdout: true
+                script {
+                    generatedTarFile = sh(script: 'ls movie-analyst-api-*.tgz', returnStdout: true)
+                }
                 build job: 'deploy-movie-analyst-api', parameters: [
-                string(name: 'artifactName', value: generatedTarFile),
+                string(name: 'artifactName', value: "${generatedTarFile}"),
                 string(name: 'jobName', value: "movie-analyst-api"),
                 string(name: 'buildNumber', value: "${currentBuild.number}")
                 ], propagate: true, wait: true
