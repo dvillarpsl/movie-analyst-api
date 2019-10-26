@@ -24,7 +24,7 @@ pipeline {
                 string(name: 'artifactName', value: generatedTarFile),
                 string(name: 'jobName', value: "movie-analyst-api"),
                 string(name: 'buildNumber', value: "${currentBuild.number}")
-                ]
+                ], propagate: true, wait: true
             }
         }
     }
